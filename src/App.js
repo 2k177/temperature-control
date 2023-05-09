@@ -22,14 +22,16 @@ function App() {
   };
   return (
     <div className="app-container">
-      <h1>Temperature control App</h1>
+      <h2>Temperature App</h2>
       <div className="temperature-display-container">
         <div className={`temperature-display ${temperatureColor}`}>
-          {temperature}
+          {temperature}°C
         </div>
       </div>
-      <button onClick={increaseTemperature}>+</button>
-      <button onClick={decreaseTemperature}>-</button>
+      <div className="button-container">
+        <button onClick={decreaseTemperature}>-</button>
+        <button onClick={increaseTemperature}>+</button>
+      </div>
     </div>
   );
 }
