@@ -3,13 +3,21 @@ import "./styles.css";
 
 function App() {
   const [temperature, setTemperature] = useState(10);
-  const [temperatureColor, settemperatureColor] = useState("red");
+  const [temperatureColor, settemperatureColor] = useState("blue");
   const increaseTemperature = () => {
+    if (temperature === 30) return;
     const newTemperature = temperature + 1;
+    if (newTemperature >= 20) {
+      settemperatureColor("red");
+    }
     setTemperature(newTemperature);
   };
   const decreaseTemperature = () => {
+    if (temperature === 0) return;
     const newTemperature = temperature - 1;
+    if (newTemperature < 20) {
+      settemperatureColor("blue");
+    }
     setTemperature(newTemperature);
   };
   return (
@@ -22,7 +30,6 @@ function App() {
       </div>
       <button onClick={increaseTemperature}>+</button>
       <button onClick={decreaseTemperature}>-</button>
-      {/* <h4>{temperature}</h4> */}
     </div>
   );
 }
